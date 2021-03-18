@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.grupparbete</groupId>
-	<artifactId>lifestyleapi</artifactId>
+	<artifactId>lifestylesite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>lifestylesite</name>
 	<description>grupparbete i backend</description>
