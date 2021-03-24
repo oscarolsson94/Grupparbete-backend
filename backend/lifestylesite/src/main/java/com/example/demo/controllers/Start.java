@@ -10,4 +10,14 @@ public class Start {
     public String start(){
         return "start";
     }
+    
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+    
+    @GetMapping("/register")
+    public String register(){
+        return "register";
+    }
 }
