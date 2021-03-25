@@ -4,17 +4,25 @@ header {
     padding: 40px;
 }
 header > h1{
-    color:white;
+    color: #ffffff;
 }
 
 nav{
-    margin:5px;
+    margin:0px
 }
 
-nav > a{
-    padding-inline: 20px;
+nav > button{
+    transition-duration: 0.4s;
+    border: 1px;
+    padding:5px;
+    margin: 0px 40px 0px;
+    background-color: lightgrey;
+}
+
+nav > button:hover{
+    background-color: white;
 }
 
 body{
-    background-color: lightgrey;
+    background-color: #d3d3d3;
 }
