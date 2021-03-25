@@ -1,3 +1,8 @@
-h1{
-    background-color: darkred;
+header {
+    background-image: url("https://www.itl.cat/pngfile/big/14-146214_sky-clouds-hd-cloudy-sky.jpg");
+    background-size: cover;
+    padding: 40px;
+}
+header > h1{
+    color:white;
 }
