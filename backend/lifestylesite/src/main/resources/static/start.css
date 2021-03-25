@@ -6,3 +6,15 @@ header {
 header > h1{
     color:white;
 }
+
+nav{
+    margin:5px;
+}
+
+nav > a{
+    padding-inline: 20px;
+}
+
+body{
+    background-color: lightgrey;
+}
