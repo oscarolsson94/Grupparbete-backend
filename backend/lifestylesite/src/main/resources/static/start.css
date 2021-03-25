@@ -1,3 +1,28 @@
-h1{
-    background-color: darkred;
+header {
+    background-image: url("https://www.itl.cat/pngfile/big/14-146214_sky-clouds-hd-cloudy-sky.jpg");
+    background-size: cover;
+    padding: 40px;
+}
+header > h1{
+    color: #ffffff;
+}
+
+nav{
+    margin:0px
+}
+
+nav > button{
+    transition-duration: 0.4s;
+    border: 1px;
+    padding:5px;
+    margin: 0px 40px 0px;
+    background-color: lightgrey;
+}
+
+nav > button:hover{
+    background-color: white;
+}
+
+body{
+    background-color: #d3d3d3;
 }
