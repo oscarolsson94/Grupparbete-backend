@@ -20,4 +20,9 @@ public class Start {
     public String register(){
         return "register";
     }
+
+    @GetMapping("/todo")
+    public String toDo(){
+        return "todo";
+    }
 }
