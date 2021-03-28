@@ -8,14 +8,22 @@ public class ToDo {
 
     public ToDo(int taskID, String task) {
         this.taskID = taskID;
-        Task = task;
+        task = task;
     }
 
     public int getTaskID() {
         return taskID;
     }
 
+    public void setTaskID(int taskID){
+        this.taskID = taskID;
+    }
+
     public String getTask() {
         return task;
+    }
+
+    public void setTask(String task){
+        this.task = task;
     }
 }
