@@ -3,7 +3,7 @@ package com.example.demo.model;
 public class ToDo {
 
     private int taskID;
-    private String Task;
+    private String task;
     private boolean taskStatus = false;
 
     public ToDo(int taskID, String task) {
@@ -16,6 +16,6 @@ public class ToDo {
     }
 
     public String getTask() {
-        return Task;
+        return task;
     }
 }
