@@ -12,9 +12,9 @@
 <body class="align-content-center">
 
 <nav>
-    <button onclick="window.location.href='http://localhost:8080/todo';">ToDo-list</button>
-    <button href="">Calendar</button>
-    <button class="float-right" onclick="window.location.href='http://localhost:8080/login';">Login</button>
+    <button th:href="@{todo}">ToDo-list</button>
+    <button th:href="@{calendar}>Calendar</button>
+    <button class="float-right" th:href="@{login}">Login</button>
 </nav>
 </body>
 </html>
