@@ -11,7 +11,9 @@ nav{
     margin:0px
 }
 
-nav > button{
+nav > a{
+	color: #000000;
+	text-decoration:none;
     transition-duration: 0.4s;
     border: 1px;
     padding:5px;
@@ -19,7 +21,7 @@ nav > button{
     background-color: lightgrey;
 }
 
-nav > button:hover{
+nav > a:hover{
     background-color: white;
 }
 
