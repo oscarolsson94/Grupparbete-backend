@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Calendar</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="/calendar.css">
 </head>
+<header>
+    <h1 class="text-center">Calendar</h1>
+</header>
+
 <body>
 
+
+<nav>
+    <a class="btn" th:href="@{todo}">ToDo-list</a>
+    <a class="btn" th:href="@{calendar}">Calendar</a>
+    <a class="btn float-right" th:href="@{login}">Login</a>
+</nav>
+
+<div class = "container">
+		
+		
+	</div>
 </body>
 </html>
