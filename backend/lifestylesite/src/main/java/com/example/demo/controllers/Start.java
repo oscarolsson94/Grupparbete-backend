@@ -8,6 +8,26 @@ public class Start {
 
     @GetMapping("/start")
     public String start(){
-        return "Start";
+        return "start";
+    }
+    
+    @GetMapping("/calendar")
+    public String calendar(){
+        return "calendar";
+    }
+    
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+    
+    @GetMapping("/register")
+    public String register(){
+        return "register";
+    }
+
+    @GetMapping("/todo")
+    public String toDo(){
+        return "todo";
     }
 }

@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Lifestyle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/start.css">
 </head>
-<body>
-<h1>Test</h1>
+<header>
+    <h1 class="text-center">Welcome!</h1>
+</header>
+<body class="align-content-center">
+
+<nav>
+    <a class="btn" th:href="@{todo}">ToDo-list</a>
+    <a class="btn" th:href="@{calendar}">Calendar</a>
+    <a class="btn float-right" th:href="@{login}">Login</a>
+</nav>
 </body>
 </html>
