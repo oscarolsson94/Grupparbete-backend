@@ -34,7 +34,7 @@ public class Start {
 
     @GetMapping("/todo")
     public String toDo(Model model){
-        model.addAttribute("todo", toDoService.getToDoStrings());
+        model.addAttribute("todos", toDoService.getToDos());
         return "todo";
     }
 }

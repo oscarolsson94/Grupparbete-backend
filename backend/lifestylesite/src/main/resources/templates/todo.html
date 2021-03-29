@@ -28,8 +28,8 @@
 
 <div id="table-div">
     <table>
-        <tr>
-
+        <tr th:each="todo : ${todos}">
+            <td th:text="${todo.task}"></td>
         </tr>
     </table>
 </div>
