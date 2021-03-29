@@ -11,6 +11,11 @@ public class Start {
         return "start";
     }
     
+    @GetMapping("/calendar")
+    public String calendar(){
+        return "calendar";
+    }
+    
     @GetMapping("/login")
     public String login(){
         return "login";
