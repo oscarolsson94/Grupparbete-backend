@@ -29,7 +29,10 @@
 <div id="table-div">
     <table>
         <tr th:each="todo : ${todos}">
-            <td th:text="${todo.task}"></td>
+            <td>
+                <input type="checkbox" id="row">
+                <label th:text="${todo.task}" for="row"></label>
+            </td>
         </tr>
     </table>
 </div>
