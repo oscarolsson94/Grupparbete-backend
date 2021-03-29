@@ -9,12 +9,15 @@ import java.util.List;
 @Service
 public class ToDoService {
 
-    public List<ToDo> getToDoValues(){
+    public List<ToDo> getToDoStrings(){
         List<ToDo> toDos = new ArrayList<>();
 
-        toDos.add(new ToDo(1, "Jag vill plugga."));
-        toDos.add(new ToDo(2, "Jag vill spela fotboll."));
+        toDos.add(new ToDo("Jag vill plugga."));
+        toDos.add(new ToDo("Jag vill spela fotboll."));
+
         return toDos;
     }
+
+
 
 }
