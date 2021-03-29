@@ -12,7 +12,7 @@ public class Start {
     @Autowired
     ToDoService toDoService;
 
-    @GetMapping("/start")
+    @GetMapping("/")
     public String start(){
         return "start";
     }
