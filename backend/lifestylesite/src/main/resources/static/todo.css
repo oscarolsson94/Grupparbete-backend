@@ -42,3 +42,16 @@ body{
     width: 500px;
 }
 
+#table-div{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+
+#checkbox{
+    margin:10px;
+    height: 30px;
+    width: 30px;
+}
+
+
