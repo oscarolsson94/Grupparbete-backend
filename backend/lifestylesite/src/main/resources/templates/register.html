@@ -7,8 +7,15 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="/loginregister.css">
 </head>
 <body>
+
+<nav>
+    <button th:href="@{todo}">ToDo-list</button>
+    <button th:href="@{calendar}">Calendar</button>
+    <button class="float-right" th:href="@{login}">Login</button>
+</nav>
 
 	<div class="container">
 		<div class="row">
