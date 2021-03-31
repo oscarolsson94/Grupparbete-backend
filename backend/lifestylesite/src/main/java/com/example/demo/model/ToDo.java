@@ -1,14 +1,21 @@
 package com.example.demo.model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "todos")
 public class ToDo {
 
-    private int taskID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer taskID;
     private String task;
-    private boolean taskStatus = false;
 
     public ToDo(int taskID, String task) {
         this.taskID = taskID;
         this.task = task;
+    }
+
+    public ToDo() {
     }
 
     public int getTaskID() {
