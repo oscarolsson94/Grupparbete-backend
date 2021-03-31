@@ -2,13 +2,13 @@ package com.example.demo.model;
 
 public class ToDo {
 
-    private int taskID;
+    private Integer taskID;
     private String task;
     private boolean taskStatus = false;
 
     public ToDo(int taskID, String task) {
         this.taskID = taskID;
-        task = task;
+        this.task = task;
     }
 
     public int getTaskID() {
