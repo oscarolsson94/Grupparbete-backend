@@ -21,10 +21,13 @@
 
 <h2 class="text-center">What do you want to do today?</h2>
 
-<div id="input-div">
-    <input id="textField" type="text" >
-    <input type="submit" value="Submit">
-</div>
+<table>
+    <form th:action="@{/todo/addTask}" th:object="${todo}" method="post">
+        <input type="text" th:field="*{task}" required>
+
+        <button type="submit">Add</button>
+    </form>
+</table>
 
 <div id="table-div">
     <table>
