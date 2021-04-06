@@ -23,7 +23,7 @@ public class ToDoController {
     }
 
     @PostMapping("/todo/addTask")
-    public String addToDo(ToDo todo, Model model){
+    public String addToDo(ToDo todo){
         toDoRepository.save(todo);
         return "redirect:/todo";
     }
