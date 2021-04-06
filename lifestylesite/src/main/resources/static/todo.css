@@ -29,16 +29,23 @@ body{
     background-color: #d3d3d3;
 }
 
-#input-div{
-    display: flex;
-    justify-content: center;
+input[type=text]{
+    font-size: x-large;
+}
+
+input[type=checkbox]{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+
+td{
+    font-size: x-large;
+    text-align: center;
     padding: 10px;
-    margin: 0px 110px 0px;
-    border-bottom: solid black 1px;
+    border-width: 1px;
+    border: solid black 1px;
+    background-color: darkgray;
+
 
 }
-
-#input-div > #textField{
-    width: 500px;
-}
-

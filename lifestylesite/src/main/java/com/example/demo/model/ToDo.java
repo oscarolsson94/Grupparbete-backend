@@ -1,21 +1,29 @@
 package com.example.demo.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "todo")
 public class ToDo {
 
-    private int taskID;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer taskID;
     private String task;
-    private boolean taskStatus = false;
 
-    public ToDo(int taskID, String task) {
-        this.taskID = taskID;
-        task = task;
+    public ToDo(String task) {
+        this.task = task;
     }
 
-    public int getTaskID() {
+    public ToDo() {
+
+    }
+
+    public Integer getTaskID() {
         return taskID;
     }
 
-    public void setTaskID(int taskID){
+    public void setTaskID(int taskID) {
         this.taskID = taskID;
     }
 
@@ -23,7 +31,7 @@ public class ToDo {
         return task;
     }
 
-    public void setTask(String task){
+    public void setTask(String task) {
         this.task = task;
     }
 }

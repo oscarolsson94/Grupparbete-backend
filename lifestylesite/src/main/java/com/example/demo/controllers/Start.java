@@ -21,8 +21,4 @@ public class Start {
         return "login";
     }
 
-    @GetMapping("/todo")
-    public String toDo(){
-        return "todo";
-    }
 }

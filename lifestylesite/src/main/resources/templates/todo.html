@@ -21,18 +21,24 @@
 
 <h2 class="text-center">What do you want to do today?</h2>
 
-<div id="input-div">
-    <input id="textField" type="text" >
-    <input type="submit" value="Submit">
-</div>
+<table class="container">
+    <form th:action="@{/todo/addTask}" th:object="${todo}" method="post">
+            <td><input type="text" class="form-control border border-dark" th:field="*{task}" required></td>
+            <td><button type="submit" class="form-control border-dark">Add</button></td>
+    </form>
+</table>
 
-<div id="table-div">
-    <table>
-        <tr>
+<table class="container mt-5">
+    <tr th:each="todo : ${tasks}">
+        <td><input type="checkbox"></td>
+        <td class="w-100" th:text="${todo.task}"></td>
 
-        </tr>
-    </table>
-</div>
-
+        <td>
+            <form th:action="@{/todo/deleteTask/{taskID}(taskID = ${todo.taskID})}" method="post">
+                    <button class="form-control border-dark" id="submitbutton" type="submit">Remove</button>
+            </form>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
