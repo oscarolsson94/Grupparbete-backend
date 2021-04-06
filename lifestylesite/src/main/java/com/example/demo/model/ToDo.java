@@ -11,8 +11,7 @@ public class ToDo {
     private int taskID;
     private String task;
 
-    public ToDo(int taskID, String task) {
-        this.taskID = taskID;
+    public ToDo(String task) {
         this.task = task;
     }
 
