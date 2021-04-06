@@ -29,13 +29,11 @@
     </form>
 </table>
 
-<div id="table-div">
-    <table>
-        <tr>
-
-        </tr>
-    </table>
-</div>
-
+<table>
+    <tr th:each="todo : ${tasks}">
+        <td th:text="${todo.task}"></td>
+        <td><input type="checkbox"></td>
+    </tr>
+</table>
 </body>
 </html>
