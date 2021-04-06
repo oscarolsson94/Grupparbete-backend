@@ -39,6 +39,10 @@ input[type=checkbox]{
     vertical-align: middle;
 }
 
+#submitbutton{
+    height: 60px;
+}
+
 td{
     font-size: x-large;
     text-align: center;
