@@ -8,7 +8,7 @@ public class ToDo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int taskID;
+    private Integer taskID;
     private String task;
 
     public ToDo(String task) {
@@ -19,7 +19,7 @@ public class ToDo {
 
     }
 
-    public int getTaskID() {
+    public Integer getTaskID() {
         return taskID;
     }
 
