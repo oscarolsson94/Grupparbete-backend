@@ -12,8 +12,9 @@ public class ToDo {
     private String email;
     private String task;
 
-    public ToDo(String task) {
+    public ToDo(String email, String task) {
     	super();
+    	this.email = email;
         this.task = task;
     }
 
