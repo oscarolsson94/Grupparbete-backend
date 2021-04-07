@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Grupparbete-backend.iml" filepath="$PROJECT_DIR$/.idea/Grupparbete-backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/backend/lifestylesite/lifestylesite.iml" filepath="$PROJECT_DIR$/backend/lifestylesite/lifestylesite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lifestylesite/lifestylesite.iml" filepath="$PROJECT_DIR$/lifestylesite/lifestylesite.iml" />
     </modules>
   </component>
 </project>
