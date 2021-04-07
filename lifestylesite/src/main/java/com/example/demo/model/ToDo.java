@@ -22,7 +22,11 @@ public class ToDo {
     }
 
     public Integer getTaskID() {
-        return taskID;
+        return this.taskID;
+    }
+
+    public String getEmail(){
+        return this.email;
     }
 
     public void setTaskID(int taskID) {
