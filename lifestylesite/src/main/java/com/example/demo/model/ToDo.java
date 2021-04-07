@@ -9,6 +9,7 @@ public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer taskID;
+    private String email;
     private String task;
 
     public ToDo(String task) {
