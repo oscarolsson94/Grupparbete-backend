@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
@@ -42,6 +45,13 @@ public class User {
 	private Collection<Role> roles;
 	
 	
+	
+//	@OneToMany(cascade = CascadeType.ALL)	
+//	@JoinColumn(name = "user_id", referencedColumnName = "id")
+//	private List<ToDo> todos = new ArrayList<>();
+	
+	
+
 	public User() { //hibernate needs default contructor
 		
 	}
@@ -53,6 +63,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.roles = roles;
+//		this.todos = todos;
 	}
 	
 	
@@ -103,6 +114,13 @@ public class User {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
+//	public List<ToDo> getTodos() {
+//		return todos;
+//	}
+//
+//	public void setTodos(List<ToDo> todos) {
+//		this.todos = todos;
+//	}
 
 	
 }

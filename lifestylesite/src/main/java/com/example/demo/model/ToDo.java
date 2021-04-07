@@ -3,7 +3,7 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "todo")
+@Table(name = "todos")
 public class ToDo {
 
     @Id
@@ -12,6 +12,7 @@ public class ToDo {
     private String task;
 
     public ToDo(String task) {
+    	super();
         this.task = task;
     }
 

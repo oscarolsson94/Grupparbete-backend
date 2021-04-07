@@ -19,6 +19,10 @@
     <a class="btn" th:href="@{todo}">ToDo-list</a>
     <a class="btn" th:href="@{calendar}">Calendar</a>
     <a class="btn float-right" th:href="@{/}">Home</a>
+    
+    <ul class = "nav navbar-nav">
+    	<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+    </ul>
 </nav>
 
 <div class = "container">
