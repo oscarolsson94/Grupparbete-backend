@@ -19,12 +19,11 @@
 <nav>
     <a class="btn" th:href="@{todo}">ToDo-list</a>
     <a class="btn" th:href="@{calendar}">Calendar</a>
-    <a class="btn float-right" th:href="@{login}">Login</a>
     
-    <ul class = "nav navbar-nav">
+</nav>
+<ul class = "nav navbar-nav">
     	<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
     </ul>
-</nav>
 Logged in as: <span sec:authentication="principal.username"> User</span>
 
 <div class = "container">

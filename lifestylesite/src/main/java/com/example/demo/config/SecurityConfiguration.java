@@ -42,10 +42,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		//Everyone
-		.antMatchers("/**", "/js/**","/css/**", "/img/**").permitAll()
+		.antMatchers("/register", "/js/**","/css/**", "/img/**").permitAll()
 		//Only logged in
-//		.antMatchers("/calendar**", "/todo**").hasRole("STANDARD_USER")
-		.anyRequest().authenticated()
+		.antMatchers("/calendar**", "/todo**", "/")
+		.authenticated()
 		.and()
 		.formLogin()
 		.loginPage("/login")
