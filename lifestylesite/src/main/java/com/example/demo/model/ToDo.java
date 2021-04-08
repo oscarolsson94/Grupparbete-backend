@@ -12,24 +12,27 @@ public class ToDo {
     private String email;
     private String task;
 
+
     public ToDo(String email, String task) {
+
+    }
+
+	public ToDo(String task) {
     	super();
-    	this.email = email;
         this.task = task;
     }
 
     public ToDo() {
 
     }
-
+	public void setEmail(String email) {
+		this.email = email;
+	}
+    
     public Integer getTaskID() {
         return this.taskID;
     }
-
-    public String getEmail(){
-        return this.email;
-    }
-
+    
     public void setTaskID(int taskID) {
         this.taskID = taskID;
     }

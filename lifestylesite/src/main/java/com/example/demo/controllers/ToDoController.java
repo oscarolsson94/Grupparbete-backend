@@ -2,6 +2,9 @@ package com.example.demo.controllers;
 
 import com.example.demo.model.ToDo;
 import com.example.demo.repository.ToDoRepository;
+
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +19,15 @@ public class ToDoController {
     ToDoRepository toDoRepository;
 
     @GetMapping("/todo")
-    public String toDo(Model model){
+    public String toDo(Principal principal, Model model){
         model.addAttribute("todo", new ToDo());
-        model.addAttribute("tasks", toDoRepository.findAll());
+        model.addAttribute("tasks", toDoRepository.findByEmail(principal.getName())); //findAllByEmail
         return "todo";
     }
 
     @PostMapping("/todo/addTask")
-    public String addToDo(ToDo todo){
+    public String addToDo(Principal principal, ToDo todo){
+    	todo.setEmail(principal.getName());
         toDoRepository.save(todo);
         return "redirect:/todo";
     }
