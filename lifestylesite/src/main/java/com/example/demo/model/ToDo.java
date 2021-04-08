@@ -12,11 +12,6 @@ public class ToDo {
     private String email;
     private String task;
 
-
-    public ToDo(String email, String task) {
-
-    }
-
 	public ToDo(String task) {
     	super();
         this.task = task;
@@ -32,7 +27,7 @@ public class ToDo {
     public Integer getTaskID() {
         return this.taskID;
     }
-    
+
     public void setTaskID(int taskID) {
         this.taskID = taskID;
     }
