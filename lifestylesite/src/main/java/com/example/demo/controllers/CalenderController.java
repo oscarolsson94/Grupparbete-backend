@@ -1,6 +1,5 @@
 package com.example.demo.controllers;
 
-import com.example.demo.model.Calender;
 import com.example.demo.service.CalenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,10 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@RestController
-@RequestMapping(path="calendar/list") //Change to calender site when ready with thymeleaf
+@Controller
 public class CalenderController {
 
     private final CalenderService calenderService;
@@ -23,8 +19,9 @@ public class CalenderController {
     }
 
 
-    @GetMapping
-    public List<Calender> getCalender(){
-          return calenderService.getAllCalenders();
+    @RequestMapping("calendar")
+    public String getCalender(Model model){
+       model.addAttribute("calendarslist", calenderService.initializeCalenders());
+          return "calendar";
     }
 }

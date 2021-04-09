@@ -1,14 +1,13 @@
 package com.example.demo.model;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public class Calender {
 
-    private UUID dateId; //ID needs to be automatic
+    private Integer dateId; //ID needs to be automatic
     private LocalDate date;
 
-    public Calender(UUID dateId, LocalDate date) {
+    public Calender(Integer dateId, LocalDate date) {
         this.dateId = dateId;
         this.date = date;
     }
@@ -25,11 +24,11 @@ public class Calender {
         this.date = date;
     }
 
-    public UUID getDateId() {
+    public Integer getDateId() {
         return dateId;
     }
 
-    public void setDateId(UUID dateId) {
+    public void setDateId(Integer dateId) {
         this.dateId = dateId;
     }
 }

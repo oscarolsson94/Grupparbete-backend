@@ -28,8 +28,20 @@
 Logged in as: <span sec:authentication="principal.username"> User</span>
 
 <div class = "container">
-		
-		
 	</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="calendar : ${calendarslist}">
+            <td th:text="${calendar.date}"></td>
+        </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
