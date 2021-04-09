@@ -1,29 +1,32 @@
 package com.example.demo.service;
-
+import com.example.demo.dao.ToDoDao;
 import com.example.demo.model.ToDo;
-import com.example.demo.repository.ToDoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
 import java.util.List;
 
+
 @Service
 public class ToDoService {
 
-    @Autowired
-    ToDoRepository toDoRepository;
+    final
+    ToDoDao toDoDao;
 
-    public void addToDoToDatabase(ToDo todo){
-        toDoRepository.save(todo);
+    public ToDoService(ToDoDao toDoDao) {
+        this.toDoDao = toDoDao;
     }
 
-    public void deleteById(Integer taskID){
-        toDoRepository.deleteById(taskID);
+    public void addToDoToDatabase(ToDo todo){
+        toDoDao.addToDoToDatabase(todo);
+    }
+
+    public void deleteById(Integer id){
+        toDoDao.deleteById(id);
     }
 
     public List<ToDo> allToDoByMail(Principal principal){
-        List<ToDo> allToDos = toDoRepository.findByEmail(principal.getName());
-        return allToDos;
+        List<ToDo> allTasks = toDoDao.allToDoByMail(principal);
+        return allTasks;
     }
 }
