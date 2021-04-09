@@ -8,9 +8,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ToDoService {
 
+    @Autowired
     ToDoRepository toDoRepository;
 
     public void addToDoToDatabase(ToDo todo){
         toDoRepository.save(todo);
+    }
+
+    public void deleteById(Integer taskID){
+        toDoRepository.deleteById(taskID);
     }
 }

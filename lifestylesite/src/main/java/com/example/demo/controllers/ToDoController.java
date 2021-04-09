@@ -5,6 +5,7 @@ import com.example.demo.repository.ToDoRepository;
 
 import java.security.Principal;
 
+import com.example.demo.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,9 @@ public class ToDoController {
     @Autowired
     ToDoRepository toDoRepository;
 
+    @Autowired
+    ToDoService toDoService;
+
     @GetMapping("/todo")
     public String toDo(Principal principal, Model model){
         model.addAttribute("todo", new ToDo());
@@ -28,13 +32,13 @@ public class ToDoController {
     @PostMapping("/todo/addTask")
     public String addToDo(Principal principal, ToDo todo){
     	todo.setEmail(principal.getName());
-        toDoRepository.save(todo);
+        toDoService.addToDoToDatabase(todo);
         return "redirect:/todo";
     }
 
     @PostMapping("/todo/deleteTask/{taskID}")
     public String deleteToDo(@PathVariable Integer taskID){
-        toDoRepository.deleteById(taskID);
+        toDoService.deleteById(taskID);
         return "redirect:/todo";
     }
 }
