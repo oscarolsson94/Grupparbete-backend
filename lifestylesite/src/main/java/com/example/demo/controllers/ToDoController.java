@@ -25,7 +25,7 @@ public class ToDoController {
     @GetMapping("/todo")
     public String toDo(Principal principal, Model model){
         model.addAttribute("todo", new ToDo());
-        model.addAttribute("tasks", toDoRepository.findByEmail(principal.getName())); //findAllByEmail
+        model.addAttribute("tasks", toDoService.allToDoByMail(principal)); //findAllByEmail
         return "todo";
     }
 
