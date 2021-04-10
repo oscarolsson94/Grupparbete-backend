@@ -17,8 +17,8 @@ public class ToDoDao {
         this.toDoRepository = toDoRepository;
     }
 
-    public void addToDoToDatabase(ToDo todo){
-        toDoRepository.save(todo);
+    public ToDo addToDoToDatabase(ToDo todo){
+        return toDoRepository.save(todo);
     }
 
     public void deleteById(Integer taskID){
