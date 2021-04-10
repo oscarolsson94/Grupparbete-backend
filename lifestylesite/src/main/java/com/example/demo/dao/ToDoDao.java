@@ -25,6 +25,11 @@ public class ToDoDao {
         toDoRepository.deleteById(taskID);
     }
 
+    public List<ToDo> allToDoTasks(){
+        List<ToDo> toDoList = toDoRepository.findAll();
+        return toDoList;
+    }
+
     public List<ToDo> allToDoByMail(Principal principal){
         List<ToDo> allToDos = toDoRepository.findByEmail(principal.getName());
         return allToDos;
