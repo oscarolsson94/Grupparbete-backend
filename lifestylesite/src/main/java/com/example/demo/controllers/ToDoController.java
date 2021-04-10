@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ToDoController {
 
-    @Autowired
-    ToDoRepository toDoRepository;
-
-    @Autowired
+    final
     ToDoService toDoService;
+
+    public ToDoController(ToDoService toDoService) {
+        this.toDoService = toDoService;
+    }
 
     @GetMapping("/todo")
     public String toDo(Principal principal, Model model){

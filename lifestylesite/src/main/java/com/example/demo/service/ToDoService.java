@@ -1,7 +1,6 @@
 package com.example.demo.service;
 import com.example.demo.dao.ToDoDao;
 import com.example.demo.model.ToDo;
-import com.example.demo.repository.ToDoRepository;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
@@ -13,8 +12,6 @@ public class ToDoService {
 
     final
     ToDoDao toDoDao;
-
-    ToDoRepository toDoRepository;
 
     public ToDoService(ToDoDao toDoDao) {
         this.toDoDao = toDoDao;
