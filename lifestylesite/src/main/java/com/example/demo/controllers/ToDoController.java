@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.model.ToDo;
 import com.example.demo.repository.ToDoRepository;
 
+import java.nio.file.attribute.UserPrincipal;
 import java.security.Principal;
 
 import com.example.demo.service.ToDoService;
@@ -26,7 +27,7 @@ public class ToDoController {
     @GetMapping("/todo")
     public String toDo(Principal principal, Model model){
         model.addAttribute("todo", new ToDo());
-        model.addAttribute("tasks", toDoService.allToDoByMail(principal)); //findAllByEmail
+        model.addAttribute("tasks", toDoService.allToDoByMail(principal.getName())); //findAllByEmail
         return "todo";
     }
 

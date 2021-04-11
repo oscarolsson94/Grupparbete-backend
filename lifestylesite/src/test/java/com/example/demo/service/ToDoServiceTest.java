@@ -11,6 +11,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.security.Principal;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ToDoServiceTest {

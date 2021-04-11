@@ -30,8 +30,8 @@ public class ToDoDao {
         return toDoList;
     }
 
-    public List<ToDo> allToDoByMail(Principal principal){
-        List<ToDo> allToDos = toDoRepository.findByEmail(principal.getName());
+    public List<ToDo> allToDoByMail(String email){
+        List<ToDo> allToDos = toDoRepository.findByEmail(email);
         return allToDos;
     }
 }

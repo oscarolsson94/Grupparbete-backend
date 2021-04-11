@@ -25,8 +25,8 @@ public class ToDoService {
         toDoDao.deleteById(id);
     }
 
-    public List<ToDo> allToDoByMail(Principal principal){
-        List<ToDo> allTasks = toDoDao.allToDoByMail(principal);
+    public List<ToDo> allToDoByMail(String email){
+        List<ToDo> allTasks = toDoDao.allToDoByMail(email);
         return allTasks;
     }
 }
