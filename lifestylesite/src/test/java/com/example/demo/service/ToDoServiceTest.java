@@ -58,7 +58,7 @@ class ToDoServiceTest {
         unexpectedList.add(wrongTask);
 
         Mockito.when(toDoService.allToDoByMail("firstname.lastname@mail.com")).thenReturn(expectedList);
-        assertEquals(expectedList, toDoDao.allToDoByMail("firstname.lastname@mail.com"));
+        assertNotEquals(unexpectedList, toDoDao.allToDoByMail("firstname.lastname@mail.com"));
         Mockito.verify(toDoDao).allToDoByMail("firstname.lastname@mail.com");
     }
 
