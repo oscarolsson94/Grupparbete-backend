@@ -9,8 +9,8 @@ public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer taskID;
-    private String task;
     private String email;
+    private String task;
 
 	public ToDo(String task) {
     	super();
@@ -20,17 +20,16 @@ public class ToDo {
     public ToDo() {
 
     }
-
-    public String getEmail() {
-		return email;
-	}
+    public String getEmail(){
+	    return this.email;
+    }
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
     
     public Integer getTaskID() {
-        return taskID;
+        return this.taskID;
     }
 
     public void setTaskID(int taskID) {
@@ -41,7 +40,5 @@ public class ToDo {
         return task;
     }
 
-    public void setTask(String task) {
-        this.task = task;
-    }
+
 }
