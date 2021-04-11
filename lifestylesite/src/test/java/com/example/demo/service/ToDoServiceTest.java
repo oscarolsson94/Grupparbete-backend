@@ -2,16 +2,12 @@ package com.example.demo.service;
 import com.example.demo.dao.ToDoDao;
 import com.example.demo.model.ToDo;
 import com.example.demo.repository.ToDoRepository;
-import org.aspectj.lang.annotation.Before;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,13 +16,11 @@ class ToDoServiceTest {
 
     static private ToDoService toDoService;
     static private ToDoDao toDoDao;
-    static private ToDoRepository toDoRepository;
 
     @BeforeAll
     static void initAll(){
         toDoService = Mockito.mock(ToDoService.class);
         toDoDao = Mockito.mock(ToDoDao.class);
-        toDoRepository = Mockito.mock(ToDoRepository.class);
     }
 
     @BeforeEach
@@ -41,6 +35,7 @@ class ToDoServiceTest {
 
         Mockito.when(toDoService.addToDoToDatabase(testToDo)).thenReturn(testToDo);
         assertEquals(testToDo.getTask(), toDoDao.addToDoToDatabase(testToDo).getTask());
+        Mockito.verify(toDoDao).addToDoToDatabase(testToDo);
     }
 
     @Test
@@ -64,6 +59,7 @@ class ToDoServiceTest {
 
         Mockito.when(toDoService.allToDoByMail("firstname.lastname@mail.com")).thenReturn(expectedList);
         assertEquals(expectedList, toDoDao.allToDoByMail("firstname.lastname@mail.com"));
+        Mockito.verify(toDoDao).allToDoByMail("firstname.lastname@mail.com");
     }
 
     private ToDo setupTestObject(){
