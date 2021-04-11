@@ -40,11 +40,17 @@ class ToDoServiceTest {
         ToDo testToDo = setupTestObject();
 
         Mockito.when(toDoService.addToDoToDatabase(testToDo)).thenReturn(testToDo);
-        assertEquals(testToDo, toDoDao.addToDoToDatabase(testToDo));
+        assertEquals(testToDo.getTask(), toDoDao.addToDoToDatabase(testToDo).getTask());
     }
 
     @Test
     void deleteById() {
+
+        ToDo testToDo = setupTestObject();
+        Mockito.when(toDoService.addToDoToDatabase(testToDo)).thenReturn(testToDo);
+
+        toDoService.deleteById(1);
+        Mockito.verify(toDoDao).deleteById(1);
     }
 
     @Test
