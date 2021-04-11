@@ -15,26 +15,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ToDoServiceTest {
 
-    @Mock
-    private ToDoDao toDoDao;
 
-    @Autowired
     private ToDoService toDoService;
 
     @BeforeEach
     void init(){
-        toDoDao = Mockito.mock(ToDoDao.class);
         toDoService = Mockito.mock(ToDoService.class);
     }
 
 
     @Test
     void addToDoToDatabase() {
-        ToDo testToDo = new ToDo("task");
-        testToDo.setEmail("firstname.lastname@mail.com");
+        ToDo testToDo = setupTestObject();
 
-        Mockito.when(toDoDao.addToDoToDatabase(testToDo)).thenReturn(testToDo);
-        assertEquals(testToDo, null);
+        Mockito.when(toDoService.addToDoToDatabase(testToDo)).thenReturn(testToDo);
+        assertEquals(testToDo, toDoService.addToDoToDatabase(testToDo));
     }
 
     @Test
@@ -43,5 +38,12 @@ class ToDoServiceTest {
 
     @Test
     void allToDoByMail() {
+    }
+
+    private ToDo setupTestObject(){
+        ToDo testToDo = new ToDo("task");
+        testToDo.setEmail("firstname.lastname@mail.com");
+        testToDo.setTaskID(1);
+        return testToDo;
     }
 }
