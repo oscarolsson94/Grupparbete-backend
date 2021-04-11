@@ -39,7 +39,7 @@ class ToDoServiceTest {
     }
 
     @Test
-    void allToDoByMail() {
+    void allToDoByMail(){
     }
 
     private ToDo setupTestObject(){

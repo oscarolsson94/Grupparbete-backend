@@ -20,6 +20,10 @@ public class ToDo {
     public ToDo() {
 
     }
+    public String getEmail(){
+	    return this.email;
+    }
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
@@ -36,7 +40,5 @@ public class ToDo {
         return task;
     }
 
-    public void setTask(String task) {
-        this.task = task;
-    }
+
 }
