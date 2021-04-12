@@ -40,5 +40,8 @@ public class ToDo {
         return task;
     }
 
+    public void setTask(String task){
+	    this.task = task;
+    }
 
 }
