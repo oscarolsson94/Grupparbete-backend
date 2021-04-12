@@ -28,3 +28,18 @@ nav > a:hover{
 body{
     background-color: #d3d3d3;
 }
+
+.whole{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5,1fr);
+    height: 100%;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+.dates{
+    padding-bottom: 60px;
+
+}
+
