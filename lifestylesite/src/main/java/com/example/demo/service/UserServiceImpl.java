@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService{
 		
 		User user = userRepository.findByEmail(username); //get user from db
 
-//		//create user with spring security
+		//create user with spring security
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
 		
 	}
