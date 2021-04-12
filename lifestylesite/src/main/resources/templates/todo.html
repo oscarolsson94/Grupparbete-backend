@@ -39,6 +39,10 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
         <td class="w-100" th:text="${todo.task}"></td>
 
         <td>
+            <button class="form-control border-dark form" id="submitbutton">Edit</button>
+        </td>
+
+        <td>
             <form th:action="@{/todo/deleteTask/{taskID}(taskID = ${todo.taskID})}" method="post">
                     <button class="form-control border-dark form" id="submitbutton" type="submit">Remove</button>
             </form>
