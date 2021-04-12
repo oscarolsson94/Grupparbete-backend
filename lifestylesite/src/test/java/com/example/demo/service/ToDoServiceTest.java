@@ -31,11 +31,15 @@ class ToDoServiceTest {
     @Test
     void addToDoToDatabase() {
         ToDo testToDo = setupTestObject();
+        ToDo newObject = new ToDo("second test");
 
-        Mockito.when(toDoDao.addToDoToDatabase(testToDo)).thenReturn(testToDo);
+        Mockito.when(toDoService.addToDoToDatabase(testToDo)).thenReturn(testToDo);
 
-        ToDo toDo = toDoService.addToDoToDatabase(testToDo);
-        assertEquals(toDo.getTask(),testToDo.getTask());
+        toDoService.addToDoToDatabase(newObject);
+
+        assertNotEquals(testToDo, toDoService.addToDoToDatabase(newObject));
+        assertEquals(testToDo, toDoService.addToDoToDatabase(testToDo));
+
     }
 
     @Test
@@ -49,11 +53,9 @@ class ToDoServiceTest {
     void allToDoByMail(){
         List<ToDo> expectedList = setupTestList();
 
-        Mockito.when(toDoDao.allToDoByMail("firstname.lastname@mail.com")).thenReturn(expectedList);
+        Mockito.when(toDoService.allToDoByMail("firstname.lastname@mail.com")).thenReturn(expectedList);
 
-        List<ToDo> toDoList = toDoService.allToDoByMail("firstname.lastname@mail.com");
-
-        assertTrue(toDoList.equals(toDoService.allToDoByMail("firstname.lastname@mail.com")));
+        assertFalse(expectedList.equals(toDoService.allToDoByMail("Unknown")));
     }
 
     private ToDo setupTestObject(){
