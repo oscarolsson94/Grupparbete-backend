@@ -2,8 +2,6 @@ package com.example.demo.service;
 import com.example.demo.dao.ToDoDao;
 import com.example.demo.model.ToDo;
 import org.springframework.stereotype.Service;
-
-import java.security.Principal;
 import java.util.List;
 
 

@@ -3,8 +3,6 @@ package com.example.demo.dao;
 import com.example.demo.model.ToDo;
 import com.example.demo.repository.ToDoRepository;
 import org.springframework.stereotype.Repository;
-
-import java.security.Principal;
 import java.util.List;
 
 @Repository
