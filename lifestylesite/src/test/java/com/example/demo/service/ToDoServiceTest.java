@@ -1,7 +1,6 @@
 package com.example.demo.service;
 import com.example.demo.dao.ToDoDao;
 import com.example.demo.model.ToDo;
-import com.example.demo.repository.ToDoRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,16 +32,14 @@ class ToDoServiceTest {
     void addToDoToDatabase() {
         ToDo testToDo = setupTestObject();
 
-        Mockito.when(toDoService.addToDoToDatabase(testToDo)).thenReturn(testToDo);
-        assertEquals("task", toDoDao.addToDoToDatabase(testToDo).getTask());
-        Mockito.verify(toDoDao).addToDoToDatabase(testToDo);
+        Mockito.when(toDoDao.addToDoToDatabase(testToDo)).thenReturn(testToDo);
+
+        ToDo toDo = toDoService.addToDoToDatabase(testToDo);
+        assertEquals(toDo.getTask(),testToDo.getTask());
     }
 
     @Test
     void deleteById() {
-
-        ToDo testToDo = setupTestObject();
-        Mockito.when(toDoService.addToDoToDatabase(testToDo)).thenReturn(testToDo);
 
         toDoService.deleteById(1);
         Mockito.verify(toDoDao).deleteById(1);
@@ -52,14 +49,11 @@ class ToDoServiceTest {
     void allToDoByMail(){
         List<ToDo> expectedList = setupTestList();
 
-        List<ToDo> unexpectedList = setupTestList();
-        ToDo wrongTask = new ToDo("test");
-        wrongTask.setEmail("wrong.lastname@mail.com");
-        unexpectedList.add(wrongTask);
+        Mockito.when(toDoDao.allToDoByMail("firstname.lastname@mail.com")).thenReturn(expectedList);
 
-        Mockito.when(toDoService.allToDoByMail("firstname.lastname@mail.com")).thenReturn(expectedList);
-        assertNotEquals(unexpectedList, toDoDao.allToDoByMail("firstname.lastname@mail.com"));
-        Mockito.verify(toDoDao).allToDoByMail("firstname.lastname@mail.com");
+        List<ToDo> toDoList = toDoService.allToDoByMail("firstname.lastname@mail.com");
+
+        assertTrue(toDoList.equals(toDoService.allToDoByMail("firstname.lastname@mail.com")));
     }
 
     private ToDo setupTestObject(){
