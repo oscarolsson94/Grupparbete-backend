@@ -36,14 +36,33 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
     </form>
 </table>
 
+        <!--------------List------------------>
+
 <table class="container mt-5">
     <tr th:each="todo : ${tasks}">
         <td><input type="checkbox"></td>
         <td class="w-100" th:text="${todo.task}"></td>
 
+        <!--------------Modal------------------>
+
+        <div class="modal fade" id="editModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form th:action="@{/todo/editTask/{taskID}(taskID = ${todo.taskID})}" method="post">
+                            <input type="text" th:field="*{todo.task}">
+                            <button type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <td>
             <button class="form-control border-dark form" data-toggle="modal" data-target="#editModal"  id="submitbutton">Edit</button>
         </td>
+
+        <!------------------------------------->
 
         <td>
             <form th:action="@{/todo/deleteTask/{taskID}(taskID = ${todo.taskID})}" method="post">

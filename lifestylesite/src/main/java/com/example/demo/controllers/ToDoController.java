@@ -5,10 +5,7 @@ import java.security.Principal;
 import com.example.demo.service.ToDoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ToDoController {
@@ -41,9 +38,10 @@ public class ToDoController {
     }
 
     @PostMapping("/todo/editTask/{taskID}")
-    public String editToDo(@PathVariable Integer taskID, @RequestBody String task){
+    public String editToDo(@PathVariable Integer taskID, @RequestParam String task){
         ToDo updatedTodo = toDoService.getToDoByID(taskID);
         updatedTodo.setTask(task);
+        toDoService.addToDoToDatabase(updatedTodo);
         return "redirect:/todo";
     }
 }
