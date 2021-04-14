@@ -35,11 +35,26 @@ body{
     grid-template-rows: repeat(5,1fr);
     height: 100%;
     text-align: center;
-    padding-top: 10vh;
+    margin-top: 10vh;
+    background-color: white;
+    margin-left: 30vh;
+    margin-right: 30vh;
+}
+
+.dates:nth-last-child(-n+3){
+    background-color: lightgrey;
 }
 
 .dates{
     padding-bottom: 60px;
-
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0,0,0,.2);
+    text-align: start;
+    padding-left: 20px;
 }
-
+.day{
+    font-size: 20px;
+    padding-top: 30px;
+    background-color: lightgrey;
+}

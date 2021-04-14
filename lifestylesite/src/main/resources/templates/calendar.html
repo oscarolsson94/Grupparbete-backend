@@ -27,13 +27,22 @@
     </ul>
 Logged in as: <span sec:authentication="principal.username"> User</span>
 
-<div class = "container">
-	</div>
+
 
 <div class="whole">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+        <div class="day">Sunday</div>
+
     <div class = dates th:each="calendar : ${calendarslist}">
-        <p class = info th:text="${calendar.date}"></p>
+        <p class = info th:text="${calendar.date.dayOfMonth}"></p>
     </div>
 </div>
+
+
 </body>
 </html>

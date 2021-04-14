@@ -5,6 +5,8 @@ import com.example.demo.dto.CalendarDTO;
 import com.example.demo.repository.CalendarRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public class CalendarDAO {
 
@@ -23,4 +25,11 @@ public class CalendarDAO {
         return repository.findAll();
     }
 
+    public boolean checkIfEmpty(){
+        return !repository.existsById(1);
+    }
+
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }
