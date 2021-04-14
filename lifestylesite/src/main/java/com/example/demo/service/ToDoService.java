@@ -27,4 +27,9 @@ public class ToDoService {
         List<ToDo> allTasks = toDoDao.allToDoByMail(email);
         return allTasks;
     }
+
+    public ToDo getToDoByID(Integer ID){
+        return toDoDao.getToDoByID(ID);
+    }
+
 }

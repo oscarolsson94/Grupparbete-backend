@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Lifestyle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/todo.css">
+
 </head>
 
 <header>
@@ -33,10 +36,34 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
     </form>
 </table>
 
+        <!--------------List------------------>
+
 <table class="container mt-5">
     <tr th:each="todo : ${tasks}">
         <td><input type="checkbox"></td>
         <td class="w-100" th:text="${todo.task}"></td>
+
+        <!--------------Modal------------------>
+
+        <div class="modal fade" id="editModal" th:attrappend="id=${todo.taskID}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form th:action="@{/todo/editTask/{taskID}(taskID = ${todo.taskID})}" method="post">
+                            <h1 th:text="${todo.task}"></h1>
+                            <input class="form-control border-dark" type="text" th:field="*{todo.task}">
+                            <button type="submit" class="form-control border-dark mt-3">Change</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <td>
+            <button class="form-control border-dark form" data-toggle="modal" data-target="#editModal" th:attrappend="data-target=${todo.taskID}" id="submitbutton">Edit</button>
+        </td>
+
+        <!------------------------------------->
 
         <td>
             <form th:action="@{/todo/deleteTask/{taskID}(taskID = ${todo.taskID})}" method="post">

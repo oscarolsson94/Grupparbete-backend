@@ -1,6 +1,7 @@
 package com.example.demo.service;
 import com.example.demo.dao.ToDoDao;
 import com.example.demo.model.ToDo;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -58,6 +59,20 @@ class ToDoServiceTest {
         assertFalse(expectedList.equals(toDoService.allToDoByMail("Unknown")));
     }
 
+    @Test
+    void getToDoByID(){
+        ToDo testToDo = setupTestObject();
+        ToDo testToDoTwo = setupTestObject();
+        testToDoTwo.setTaskID(2);
+
+        Mockito.when(toDoService.getToDoByID(1)).thenReturn(testToDo);
+
+        Mockito.when(toDoService.getToDoByID(2)).thenReturn(testToDoTwo);
+
+        assertEquals(1, toDoService.getToDoByID(1).getTaskID());
+        assertEquals(testToDoTwo, toDoService.getToDoByID(2));
+    }
+
     private ToDo setupTestObject(){
         ToDo testToDo = new ToDo("task");
         testToDo.setEmail("firstname.lastname@mail.com");
@@ -80,4 +95,5 @@ class ToDoServiceTest {
 
         return testList;
     }
+
 }

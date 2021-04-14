@@ -32,4 +32,8 @@ public class ToDoDao {
         List<ToDo> allToDos = toDoRepository.findByEmail(email);
         return allToDos;
     }
+
+    public ToDo getToDoByID(Integer ID){
+       return toDoRepository.findById(ID).get();
+    }
 }
