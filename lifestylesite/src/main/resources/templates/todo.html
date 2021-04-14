@@ -51,8 +51,8 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
                     <div class="modal-body">
                         <form th:action="@{/todo/editTask/{taskID}(taskID = ${todo.taskID})}" method="post">
                             <h1 th:text="${todo.task}"></h1>
-                            <input type="text" th:field="*{todo.task}">
-                            <button type="submit"></button>
+                            <input class="form-control border-dark" type="text" th:field="*{todo.task}">
+                            <button type="submit" class="form-control border-dark mt-3">Change</button>
                         </form>
                     </div>
                 </div>
