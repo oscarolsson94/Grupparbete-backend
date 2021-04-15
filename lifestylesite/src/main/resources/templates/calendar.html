@@ -3,6 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Calendar</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -10,7 +12,7 @@
 	<link rel="stylesheet" href="/calendar.css">
 </head>
 <header>
-    <h1 class="text-center">Calendar</h1>
+    <h1 class="text-center" th:text="${calendar.getDate().month}">Calendar</h1>
 </header>
 
 <body>
@@ -28,21 +30,20 @@
 Logged in as: <span sec:authentication="principal.username"> User</span>
 
 
-
-<div class="whole">
-        <div class="day">Monday</div>
-        <div class="day">Tuesday</div>
-        <div class="day">Wednesday</div>
-        <div class="day">Thursday</div>
-        <div class="day">Friday</div>
-        <div class="day">Saturday</div>
-        <div class="day">Sunday</div>
-
-    <div class = dates th:each="calendar : ${calendarslist}">
-        <p class = info th:text="${calendar.date.dayOfMonth}"></p>
+<div class="background">
+    <div class="whole">
+            <div class="day">Monday</div>
+            <div class="day">Tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thursday</div>
+            <div class="day">Friday</div>
+            <div class="day">Saturday</div>
+            <div class="day">Sunday</div>
+        <div class = dates th:each="calendar : ${calendarslist}">
+            <p class = info th:text="${calendar.date.dayOfMonth}"></p>
+        </div>
     </div>
 </div>
-
 
 </body>
 </html>
