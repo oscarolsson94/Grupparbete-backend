@@ -44,13 +44,6 @@ public class User {
 			)
 	private Collection<Role> roles;
 	
-	
-	
-//	@OneToMany(cascade = CascadeType.ALL)	
-//	@JoinColumn(name = "user_id", referencedColumnName = "id")
-//	private List<ToDo> todos = new ArrayList<>();
-	
-	
 
 	public User() { //hibernate needs default contructor
 		
