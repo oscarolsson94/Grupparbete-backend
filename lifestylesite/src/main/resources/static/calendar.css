@@ -100,3 +100,8 @@ body{
  background-color:#e1e1e1 ;
     padding-bottom: 100vh;
 }
+
+.events{
+    position: absolute;
+    border-width: 0;
+}

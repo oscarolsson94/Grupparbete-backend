@@ -30,6 +30,15 @@
 Logged in as: <span sec:authentication="principal.username"> User</span>
 
 
+<table class="container">
+    <form th:action="@{/calendar/POST}" th:object="${event}" method="post">
+        <td><input type="date" value="2021-04-01" class="form-control border border-dark" th:field="*{date}" required></td>
+        <td><input type="time" class="form-control border border-dark" value="00:00" th:field="*{time}" required></td>
+        <td><input type="text" class="form-control border border-dark" th:field="*{name}" required></td>
+        <td><button type="submit" class="form-control border-dark">Add</button></td>
+    </form>
+</table>
+
 <div class="background">
     <div class="whole">
             <div class="day">Monday</div>
@@ -40,10 +49,20 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
             <div class="day">Saturday</div>
             <div class="day">Sunday</div>
         <div class = dates th:each="calendar : ${calendarslist}">
-            <p class = info th:text="${calendar.date.dayOfMonth}"></p>
+            <p class = info th:id="${calendar.date}" th:text="${calendar.date.dayOfMonth}"></p>
         </div>
-    </div>
-</div>
 
+        <div class = events th:each="event : ${eventList}">
+        <p th:id="${event.date}" th:text="${event.time}"></p>
+        <p th:id="${event.date}" th:text="${event.name}"></p>
+
+    </div>
+
+    </div>
+
+
+</div>
 </body>
+
+<script src="calendar.js"></script>
 </html>

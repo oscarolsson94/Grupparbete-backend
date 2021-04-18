@@ -3,6 +3,7 @@ package com.example.demo.dto;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
@@ -38,3 +39,5 @@ public class CalendarDTO {
         this.date = date;
     }
 }
+
+
