@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dto.EventDTO;
 import com.example.demo.model.Calender;
 import com.example.demo.model.Event;
 import com.example.demo.service.CalenderService;
@@ -7,9 +8,7 @@ import com.example.demo.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -50,4 +49,17 @@ public class CalenderController {
         return "redirect:/calendar";
     }
 
+    @PostMapping("/calendar/deleteEvent/{eventID}")
+    public String deleteEvent(@PathVariable Integer eventID){
+        eventService.deleteById(eventID);
+        return "redirect:/calendar";
+    }
+
+    @PutMapping("/calendar/editEvent/{eventId}")
+        public String editEvent(@PathVariable Integer eventId, @RequestParam String event){
+        EventDTO updateEvent = eventService.getEventById(eventId);
+        updateEvent.setEvent(event);
+        eventService.addEventToDatabase(updateEvent);
+        return "redirect:/calendar";
+        }
 }

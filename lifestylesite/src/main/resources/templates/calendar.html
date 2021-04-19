@@ -52,16 +52,33 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
             <p class = info th:id="${calendar.date}" th:text="${calendar.date.dayOfMonth}"></p>
         </div>
 
-        <div class = events th:each="event : ${eventList}">
-        <p th:id="${event.date}" th:text="${event.time}"></p>
-        <p th:id="${event.date}" th:text="${event.name}"></p>
+
 
     </div>
 
-    </div>
+    <div class="tablewrapper">
+    <table class="events"th:each="event : ${eventList}">
+            <td class="event"th:id="${event.date}" th:text="${event.time}"></td>
+            <td class="spacer">s</td>
+            <td class= "event" th:id="${event.date}" th:text="${event.event}"></td>
+        <td class="spacer">s</td>
+            <td class="event" th:id="${event.date}" th:text="${event.date}"></td>
+        <td class="spacer">s</td>
 
+            <td>
+                <form th:action="@{/calendar/deleteEvent/{eventID}(eventID = ${event.id})}" method="post">
+                    <button class="button" id="submitbutton" type="submit">x</button>
+                </form>
+            </td>
+
+        <td class="spacer">s</td>
+        <br>
+    </table>
+    </div>
 
 </div>
+
+
 </body>
 
 <script src="calendar.js"></script>

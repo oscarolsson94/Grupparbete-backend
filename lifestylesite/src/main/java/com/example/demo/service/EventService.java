@@ -17,13 +17,13 @@ public class EventService {
         this.eventDAO = eventDAO;
     }
 
-    public List<Event> showEvents() {
+    public void deleteById(Integer eventID) {
+      eventDAO.deleteEventById(eventID);
+    }
+
+    public List<EventDTO> showEvents() {
         List<Event> eventList = new ArrayList<>();
-        List<EventDTO> eventDTOSList = (List<EventDTO>) eventDAO.getAllEvents();
-        for (EventDTO eventDTO : eventDTOSList){
-            eventList.add(mapToEvent(eventDTO));
-        }
-        return eventList;
+        return (List<EventDTO>) eventDAO.getAllEvents();
     }
 
     public EventDTO mapFromEvent(Event event){
@@ -32,5 +32,13 @@ public class EventService {
 
     public Event mapToEvent(EventDTO eventDTO){
         return new Event(eventDTO.getId(),eventDTO.getDate(),eventDTO.getTime(),eventDTO.getEvent());
+    }
+
+    public EventDTO getEventById(Integer eventId) {
+       return eventDAO.findEventById(eventId);
+    }
+
+    public EventDTO addEventToDatabase(EventDTO updateEvent) {
+        return eventDAO.addEventToDatabase(updateEvent);
     }
 }
