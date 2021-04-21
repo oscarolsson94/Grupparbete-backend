@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import antlr.StringUtils;
 import com.example.demo.dto.EventDTO;
 import com.example.demo.model.Calender;
 import com.example.demo.model.Event;
@@ -11,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+import java.util.Optional;
 
 @Controller
 public class CalenderController {
@@ -55,11 +59,30 @@ public class CalenderController {
         return "redirect:/calendar";
     }
 
-    @PutMapping("/calendar/editEvent/{eventId}")
-        public String editEvent(@PathVariable Integer eventId, @RequestParam String event){
-        EventDTO updateEvent = eventService.getEventById(eventId);
-        updateEvent.setEvent(event);
+   @PostMapping("/calendar/editEvent/{eventId}")
+        public String editEvent(@PathVariable Integer eventId, @RequestBody String newEvent){
+        String parsedEvent = newEvent.substring(newEvent.indexOf("=")+1, newEvent.indexOf("&"));
+        System.out.printf(parsedEvent);
+
+        if (!parsedEvent.isEmpty())
+        { EventDTO updateEvent = eventService.getEventById(eventId);
+        updateEvent.setEvent(parsedEvent);
         eventService.addEventToDatabase(updateEvent);
+        }
         return "redirect:/calendar";
         }
+  /*   @PostMapping("/calendar/editDate/{eventId}")
+    public String editEvent(@PathVariable Integer eventId, @RequestBody LocalDate newDate){
+        EventDTO updateEvent = eventService.getEventById(eventId);
+        updateEvent.setDate(newDate);
+        eventService.addEventToDatabase(updateEvent);
+        return "redirect:/calendar";
+    }
+    @PostMapping("/calendar/editTime/{eventId}")
+    public String editEvent(@PathVariable Integer eventId, @RequestBody LocalTime newtime){
+        EventDTO updateEvent = eventService.getEventById(eventId);
+        updateEvent.setTime(newtime);
+        eventService.addEventToDatabase(updateEvent);
+        return "redirect:/calendar";
+    }*/
 }

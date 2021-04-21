@@ -1,9 +1,10 @@
 package com.example.demo.dao;
 
 import com.example.demo.dto.EventDTO;
-import com.example.demo.model.Event;
 import com.example.demo.repository.EventRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public class EventDAO {
@@ -22,8 +23,9 @@ public class EventDAO {
         return repository.save(eventDTO);
     }
 
-    public EventDTO findEventById(Integer Id){
-        return repository.findById(Id).get();
+    public Optional<EventDTO> findEventById(Integer Id){
+
+        return repository.findById(Id);
     }
 
     public void deleteEventById(Integer id) {

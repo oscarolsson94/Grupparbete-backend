@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EventService {
@@ -35,7 +36,11 @@ public class EventService {
     }
 
     public EventDTO getEventById(Integer eventId) {
-       return eventDAO.findEventById(eventId);
+
+        if (eventDAO.findEventById(eventId).isPresent()){
+            return eventDAO.findEventById(eventId).get();
+        }
+        return null;
     }
 
     public EventDTO addEventToDatabase(EventDTO updateEvent) {

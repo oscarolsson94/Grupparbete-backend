@@ -67,11 +67,20 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
 
             <td>
                 <form th:action="@{/calendar/deleteEvent/{eventID}(eventID = ${event.id})}" method="post">
-                    <button class="button" id="submitbutton" type="submit">x</button>
+                    <button class="button1" id="submitbutton" type="submit">x</button>
                 </form>
             </td>
 
+
         <td class="spacer">s</td>
+
+        <form th:action="@{/calendar/editEvent/{eventID}(eventID = ${event.id})}" method="post">
+            <div class="formPUT">
+        <input class="input" type="text" th:field="*{event.event}">
+            <button class="button" id="ordinaryButton" type="submit">Change event</button>
+            </div>
+        </form>
+
         <br>
     </table>
     </div>

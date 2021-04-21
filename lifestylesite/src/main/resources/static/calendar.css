@@ -122,7 +122,7 @@ body{
 .event{
     background-color: #F6EBCD;
 }
-.button{
+.button1{
     position: absolute;
     opacity: 0;
     top: -14px;
@@ -132,10 +132,11 @@ body{
     background-color: rgb(209, 82, 82);
     border-width: 0;
     font-size: 16px;
-    border-radius: 100%;;
+    border-radius: 100%;
+    transition: opacity 1s;
 }
 
-.button:hover,.event:hover + .button{
+.button1:hover,.event:hover + .button1{
     opacity: 100%;
     transition: opacity 0.8s;
 }
@@ -143,9 +144,20 @@ body{
 .tablewrapper{
     border-radius: 50%;
     width:300px;
-    margin: auto;
+    position: relative;
+    left: 50px;
+    top: -1300px;
 }
 
+.formPUT{
+    opacity: 0;
+    transition: opacity 10s;
+}
+
+.formPUT:hover,.event:hover + .formPUT{
+    opacity: 100%;
+    transition: opacity 0.8s;
+}
 
 
 
