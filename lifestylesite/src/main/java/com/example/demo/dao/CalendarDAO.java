@@ -2,9 +2,11 @@ package com.example.demo.dao;
 
 
 import com.example.demo.dto.CalendarDTO;
+import com.example.demo.dto.EventDTO;
 import com.example.demo.repository.CalendarRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
