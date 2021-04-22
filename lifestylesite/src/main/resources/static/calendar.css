@@ -145,8 +145,8 @@ body{
     border-radius: 50%;
     width:300px;
     position: relative;
-    left: 50px;
-    top: -1300px;
+    left: 1vh;
+    top: -107vh;
 }
 
 .formPUT{
