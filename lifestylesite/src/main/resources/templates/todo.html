@@ -31,7 +31,7 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
 
 <table class="container">
     <form th:action="@{/todo/addTask}" th:object="${todo}" method="post">
-            <td><input type="text" class="form-control border border-dark" th:field="*{task}" required></td>
+            <td><input type="text" class="form-control border border-dark" th:field="*{task}" maxlength="70" required></td>
             <td><button type="submit" class="form-control border-dark">Add</button></td>
     </form>
 </table>
@@ -51,7 +51,7 @@ Logged in as: <span sec:authentication="principal.username"> User</span>
                     <div class="modal-body">
                         <form th:action="@{/todo/editTask/{taskID}(taskID = ${todo.taskID})}" method="post">
                             <h1 th:text="${todo.task}"></h1>
-                            <input class="form-control border-dark" type="text" th:field="*{todo.task}">
+                            <input class="form-control border-dark" type="text" th:field="*{todo.task}" maxlength="70" required>
                             <button type="submit" class="form-control border-dark mt-3">Change</button>
                         </form>
                     </div>
