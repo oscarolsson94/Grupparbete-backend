@@ -62,7 +62,6 @@ public class CalenderController {
    @PostMapping("/calendar/editEvent/{eventId}")
         public String editEvent(@PathVariable Integer eventId, @RequestBody String newEvent){
         String parsedEvent = newEvent.substring(newEvent.indexOf("=")+1, newEvent.indexOf("&"));
-        System.out.printf(parsedEvent);
 
         if (!parsedEvent.isEmpty())
         { EventDTO updateEvent = eventService.getEventById(eventId);
@@ -71,18 +70,5 @@ public class CalenderController {
         }
         return "redirect:/calendar";
         }
-  /*   @PostMapping("/calendar/editDate/{eventId}")
-    public String editEvent(@PathVariable Integer eventId, @RequestBody LocalDate newDate){
-        EventDTO updateEvent = eventService.getEventById(eventId);
-        updateEvent.setDate(newDate);
-        eventService.addEventToDatabase(updateEvent);
-        return "redirect:/calendar";
-    }
-    @PostMapping("/calendar/editTime/{eventId}")
-    public String editEvent(@PathVariable Integer eventId, @RequestBody LocalTime newtime){
-        EventDTO updateEvent = eventService.getEventById(eventId);
-        updateEvent.setTime(newtime);
-        eventService.addEventToDatabase(updateEvent);
-        return "redirect:/calendar";
-    }*/
+
 }

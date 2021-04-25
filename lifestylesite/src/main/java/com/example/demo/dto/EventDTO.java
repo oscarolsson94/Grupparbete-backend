@@ -30,6 +30,13 @@ public class EventDTO {
         this.event = event;
     }
 
+    public EventDTO(Integer id, LocalDate date, LocalTime time, String event) {
+        this.id = id;
+        this.date = date;
+        this.time = time;
+        this.event = event;
+    }
+
     public Integer getId() {
         return id;
     }

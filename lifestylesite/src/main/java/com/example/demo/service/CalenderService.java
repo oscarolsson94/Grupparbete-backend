@@ -22,9 +22,10 @@ public class CalenderService {
 
     public CalenderService(CalendarDAO calendarDAO, EventDAO eventDAO) {
         this.calendarDAO = calendarDAO;
-
         this.eventDAO = eventDAO;
     }
+
+
 
     public List<Calender> initializeCalenders() {
         List <Event> EventList = crossCheckEventAndCalender();
@@ -73,7 +74,7 @@ public class CalenderService {
         return calenderList;
     }
 
-    public List<Event> crossCheckEventAndCalender(){
+    private List<Event> crossCheckEventAndCalender(){
         List <Event> eventList = new ArrayList<>();
         List <CalendarDTO> calendarDTOSList = (List<CalendarDTO>) calendarDAO.getAllCalendar();
         List <EventDTO> EventDTOSList = (List<EventDTO>) eventDAO.getAllEvents();
@@ -89,14 +90,14 @@ public class CalenderService {
          return eventList;
     }
 
-    public int returnMonth(){
+    private int returnMonth(){
 
 
         LocalDate getMonth = LocalDate.now();
         return getMonth.getMonthValue();
     }
 
-    public LocalDate retunMonthOfToday(){
+    private LocalDate retunMonthOfToday(){
         int MonthValue = returnMonth();
         List<Calender> completeShowList = new ArrayList<>();
         if (LocalDate.of(LocalDate.now().getYear(), MonthValue,1).getDayOfWeek() == DayOfWeek.MONDAY){
@@ -123,28 +124,26 @@ public class CalenderService {
         return null;
     }
 
-    public Calender mapToCalendar(CalendarDTO calendarDTO){
+    private Calender mapToCalendar(CalendarDTO calendarDTO){
         return new Calender(calendarDTO.getId(), calendarDTO.getDate());
     }
 
-    public CalendarDTO mapFromCalendar(Calender calender){
+    private CalendarDTO mapFromCalendar(Calender calender){
 
         return new CalendarDTO(calender.getDateId(),calender.getDate());
     }
 
-    public EventDTO mapFromEvent(Event event){
+    private EventDTO mapFromEvent(Event event){
         return new EventDTO(event.getDate(),event.getTime(),event.getName());
     }
 
 
-    public void saveEvents(Event event){
+    public Event saveEvents(Event event){
 
         eventDAO.addEvent(mapFromEvent(event));
+        return event;
 
     }
-  /*  public Object findAll() {
-        return calendarDAO.getAllCalendar();
-    }
-*/
+
 
 }
